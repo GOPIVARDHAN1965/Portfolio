@@ -2,6 +2,7 @@ import streamlit as st
 from constants import contact
 
 st.title("Contact Me")
+st.markdown("---")  # Horizontal divider
 
 # ---- Contact Details ----
 st.subheader("Let's Connect!")

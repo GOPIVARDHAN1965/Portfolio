@@ -1,11 +1,14 @@
 import streamlit as st
 from constants import experience, education
 
+
+
 # Title
-st.title("About Me")
+st.title("Experience")
+st.markdown("---")  # Horizontal divider
+
 
 # ---- Resume Download ----
-st.markdown("### Download My Resume")
 with open("static/GopiVardhan_Gunta_Resume.pdf", "rb") as file:
     btn = st.download_button(
         label="📄 Download Resume",

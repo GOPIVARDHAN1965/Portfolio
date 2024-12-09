@@ -6,7 +6,10 @@ st.set_page_config(
     page_title="Portfolio - Introduction",
     page_icon="🏠",
     layout="wide",
+    initial_sidebar_state="collapsed"
 )
+
+
 
 # Header Section
 st.title(f"Hi, I'm {info['name']}! 👋")
@@ -43,11 +46,58 @@ with col1:
 
 # Right Column: Profile Picture
 with col2:
-    st.image("static/profile.jpeg", width=300, caption=f"{info['name']}")
+    st.image("static/profile.jpeg", caption=info['name'], use_column_width=True)
+
+# CSS for click-to-zoom effect
+st.markdown(
+    """
+    <style>
+    .zoom {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 300px;
+        transition: transform 0.2s ease-in-out; /* Smooth zoom effect */
+        cursor: pointer;
+    }
+    .zoom:hover {
+        transform: scale(1.2); /* Zooms in the image on hover */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Skills Section
-st.subheader("My :blue[Skills] ⚒️")
+st.markdown("### My <span style='color:Red'>Skills ⚒️</span>", unsafe_allow_html=True)
 st.markdown("---")  # Horizontal divider
+
+# Skills Tab
+st.markdown(
+    """
+    <style>
+    .stButton button {
+        background-color: #f4f4f4;
+        color: #333;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 14px;
+        width: 150px; /* Fixed width for uniformity */
+        height: 40px; /* Fixed height for uniformity */
+        transition: all 0.6s ease; /* Smooth transition for hover effect */
+    }
+
+    .stButton button:hover {
+        background-color: #28a745; /* Green fill on hover */
+        color: white; /* White text on hover */
+        transform: scale(1.05); /* Slightly enlarges the button */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds shadow for 3D effect */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Skills Tab
 def skill_tab():
@@ -59,9 +109,11 @@ def skill_tab():
         cols = st.columns(skill_col_size)
         for col in cols:
             try:
-                col.button(next(skill_iter))
+                with col:
+                    st.button(next(skill_iter))
             except StopIteration:
                 break
+
 
 with st.spinner("Loading skills..."):
     skill_tab()
