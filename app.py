@@ -45,7 +45,7 @@ with col1:
 
 # Right Column: Profile Picture
 with col2:
-    st.image("static/profile.jpeg", caption=info['name'], use_column_width=True)
+    st.image("static/profile1.jpeg", caption=info['name'], use_column_width=True)
 
 # CSS for click-to-zoom effect
 st.markdown(
