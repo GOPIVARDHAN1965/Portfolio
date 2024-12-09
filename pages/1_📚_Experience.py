@@ -5,7 +5,7 @@ from constants import experience, education
 
 # Title
 st.title("Experience")
-st.markdown("---")  # Horizontal divider
+st.markdown("---") 
 
 
 # ---- Resume Download ----

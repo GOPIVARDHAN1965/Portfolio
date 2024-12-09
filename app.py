@@ -1,7 +1,6 @@
 import streamlit as st
 from constants import *
 
-# Set page configuration
 st.set_page_config(
     page_title="Portfolio - Introduction",
     page_icon="🏠",
@@ -16,10 +15,10 @@ st.title(f"Hi, I'm {info['name']}! 👋")
 
 # About Me Section
 st.header("About Me")
-st.markdown("---")  # Horizontal divider
+st.markdown("---") 
 
 # Layout for content
-col1, col2 = st.columns([2, 1])  # Two-column layout
+col1, col2 = st.columns([2, 1])  
 
 # Left Column: About Me Text
 with col1:
@@ -70,7 +69,7 @@ st.markdown(
 
 # Skills Section
 st.markdown("### My <span style='color:Red'>Skills ⚒️</span>", unsafe_allow_html=True)
-st.markdown("---")  # Horizontal divider
+st.markdown("---") 
 
 # Skills Tab
 st.markdown(
